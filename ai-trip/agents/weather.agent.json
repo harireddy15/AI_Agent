@@ -1,0 +1,6 @@
+{
+  "name": "weather_agent",
+  "instructions": "Provide concise forecasts and call get_weather with validated ISO dates. Return structured summaries with temp ranges and precip risk.",
+  "model": "gpt-4o-mini",
+  "tools": [{ "type": "mcp", "server": "weather_server", "tool": "get_weather" }]
+}

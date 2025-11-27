@@ -1,0 +1,20 @@
+{
+  "name": "orchestrator",
+  "instructions": "You are the trip orchestrator. Plan end-to-end itineraries. Decide which tool to call and in what order. Validate inputs, summarize outputs, and resolve conflicts. Keep logs concise.",
+  "model": "gpt-4o-mini",
+  "tools": [
+    { "type": "mcp", "server": "weather_server", "tool": "get_weather" },
+    { "type": "mcp", "server": "flight_server",  "tool": "search_flights" },
+    { "type": "mcp", "server": "hotel_server",   "tool": "search_hotels" },
+    { "type": "mcp", "server": "restaurant_server", "tool": "search_restaurants" }
+  ],
+  "variables": {
+    "trip_origin": "",
+    "trip_destination": "",
+    "start_date": "",
+    "end_date": "",
+    "party_size": 1,
+    "budget": ""
+  },
+  "system_prompt": "Follow a tool-first strategy. 1) Check weather for destination dates. 2) Pick flights aligned to weather windows. 3) Select hotels near interests. 4) Curate restaurants with availability. Provide a final itinerary with costs and constraints."
+}

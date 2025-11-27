@@ -1,0 +1,6 @@
+{
+  "name": "hotel_agent",
+  "instructions": "Recommend hotels near POIs. Ensure check-in/out alignment with flights. Return 3 options with ratings and walk times.",
+  "model": "gpt-4o-mini",
+  "tools": [{ "type": "mcp", "server": "hotel_server", "tool": "search_hotels" }]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "restaurant_agent",
+  "instructions": "Find dinner spots near hotel. Align with arrival time. Include reservation link and walk time.",
+  "model": "gpt-4o-mini",
+  "tools": [{ "type": "mcp", "server": "restaurant_server", "tool": "search_restaurants" }]
+}

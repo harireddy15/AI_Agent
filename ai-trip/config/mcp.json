@@ -1,0 +1,95 @@
+{
+  "servers": [
+    {
+      "name": "weather_server",
+      "type": "command",
+      "command": "python",
+      "args": ["mcp/weather_server/server.py"],
+      "tools": [
+        {
+          "name": "get_weather",
+          "description": "Get forecast by city and ISO date",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "city": { "type": "string" },
+              "date": { "type": "string", "description": "YYYY-MM-DD" }
+            },
+            "required": ["city", "date"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "flight_server",
+      "type": "command",
+      "command": "python",
+      "args": ["mcp/flight_server/server.py"],
+      "tools": [
+        {
+          "name": "search_flights",
+          "description": "Find roundtrip flights",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "origin": { "type": "string" },
+              "destination": { "type": "string" },
+              "depart_date": { "type": "string" },
+              "return_date": { "type": "string" },
+              "cabin": { "type": "string" },
+              "max_price": { "type": "number" }
+            },
+            "required": ["origin","destination","depart_date","return_date"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hotel_server",
+      "type": "command",
+      "command": "python",
+      "args": ["mcp/hotel_server/server.py"],
+      "tools": [
+        {
+          "name": "search_hotels",
+          "description": "Find hotels in city with filters",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "city": { "type": "string" },
+              "check_in": { "type": "string" },
+              "check_out": { "type": "string" },
+              "guests": { "type": "integer" },
+              "min_rating": { "type": "number" },
+              "max_price": { "type": "number" }
+            },
+            "required": ["city","check_in","check_out"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "restaurant_server",
+      "type": "command",
+      "command": "python",
+      "args": ["mcp/restaurant_server/server.py"],
+      "tools": [
+        {
+          "name": "search_restaurants",
+          "description": "Find restaurants and reservations",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "city": { "type": "string" },
+              "date": { "type": "string" },
+              "time": { "type": "string" },
+              "party_size": { "type": "integer" },
+              "cuisine": { "type": "string" }
+            },
+            "required": ["city","date","time"]
+          }
+        }
+      ]
+    }
+  ]
+}

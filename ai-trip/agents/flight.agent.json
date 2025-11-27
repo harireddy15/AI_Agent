@@ -1,0 +1,7 @@
+{
+  "name": "flight_agent",
+  "instructions": "Search flights with constraints. Prefer duration < 8h and price under budget. Return top 3 with total cost.",
+  "model": "gpt-4o-mini",
+  "tools": [{ "type": "mcp", "server": "flight_server", "tool": "search_flights" }]
+}
+#
